@@ -34,7 +34,7 @@ public class PageA extends HttpServlet {
 
 		//セッションオブジェクトを取得
 		HttpSession session = request.getSession(true);
-		session.setAttribute("NAME", "田中久瑠美");
+		session.setAttribute("NAME", "鈴木美月");
 
 		//アプリケーションオブジェクトを取得
 		ServletContext application = getServletContext();
@@ -42,10 +42,13 @@ public class PageA extends HttpServlet {
 
 		request.setAttribute("COMPANY", "CET");
 
+		User u = new User("01", "Kurumi Tanaka", 22);
+		request.setAttribute("USER", u);
+
 		//リクエストの転送（フォワード処理）
 		//リクエスト転送用のオブジェクトを取得する
 		//RequestDispatcher rd = request.getRequestDispatcher("/pageB");
-		RequestDispatcher rd = request.getRequestDispatcher("/jsp/pageC.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/jsp/pageD.jsp");
 
 		//フォワード処理を実行（リクエスト転送処理の実行）
 		rd.forward(request, response);
